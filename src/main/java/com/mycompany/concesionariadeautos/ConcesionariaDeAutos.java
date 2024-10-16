@@ -4,6 +4,8 @@
 
 package com.mycompany.concesionariadeautos;
 
+import com.mycompany.concesionariadeautos.igu.Principal;
+
 /**
  *
  * @author JEFFERSON ALQUINGA
@@ -11,6 +13,11 @@ package com.mycompany.concesionariadeautos;
 public class ConcesionariaDeAutos {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       
+        Principal prin = new Principal();
+        
+        prin.setVisible(true);
+        prin.setLocationRelativeTo(null);
+        
     }
 }
