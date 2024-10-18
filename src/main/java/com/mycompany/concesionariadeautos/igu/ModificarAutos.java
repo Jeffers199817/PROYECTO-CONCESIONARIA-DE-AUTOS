@@ -20,16 +20,19 @@ public class ModificarAutos extends javax.swing.JFrame {
     
     Automovil auto;
     
-    int num_auto;
+    int id;
     /**
      * Creates new form IngresarAutos
      */
-    public ModificarAutos() {
+    public ModificarAutos(int id ) {
         
         control = new Controlador();
-        this.num_auto = num_auto;
+        this.id = id;
         initComponents();
+        cargarDatos();
     }
+
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,6 +65,11 @@ public class ModificarAutos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel1.setText("MODIFICAR UN AUTO");
@@ -328,9 +336,9 @@ public class ModificarAutos extends javax.swing.JFrame {
         dialog.setVisible(true);
         
         this.dispose();
-        Principal principal = new Principal();
-                principal.setVisible(true);
-                principal.setLocationRelativeTo(null);
+        VerCatalogo catalogo = new VerCatalogo();
+        catalogo.setVisible(true);
+        catalogo.setLocationRelativeTo(null);
         }else{ 
             
             JOptionPane optionPane = new JOptionPane("Todos los campos son obligatorios");
@@ -349,6 +357,11 @@ public class ModificarAutos extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarModificado1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+         
+    }//GEN-LAST:event_formWindowOpened
 
 
 
@@ -374,4 +387,20 @@ public class ModificarAutos extends javax.swing.JFrame {
     private javax.swing.JTextField txtMotor;
     private javax.swing.JTextField txtPlaca;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatos() {
+        
+        
+        this.auto = control.traerAuto(id);
+          
+          
+      txtModelo.setText(auto.getModelo());
+      txtMarca.setText(auto.getMarca());
+      txtMotor.setText(auto.getMotor());
+      txtColor.setText(auto.getColor());
+      txtPlaca.setText(auto.getPlaca());
+       int posicion = Integer.parseInt(auto.getCantidadPuertas());
+      cmbCantidadDePuertas.setSelectedIndex(posicion);
+        
+    }
 }

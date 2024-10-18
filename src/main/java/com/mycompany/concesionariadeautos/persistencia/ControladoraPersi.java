@@ -44,5 +44,10 @@ public class ControladoraPersi {
             Logger.getLogger(ControladoraPersi.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Automovil traerAuto(int num_auto) {
+        
+       return automovilJpa.findAutomovil(num_auto);
+    }
     
 }

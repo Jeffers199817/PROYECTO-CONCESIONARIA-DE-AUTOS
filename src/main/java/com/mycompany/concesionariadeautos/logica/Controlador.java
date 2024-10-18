@@ -55,4 +55,10 @@ public class Controlador {
 
     }
 
+    public Automovil traerAuto(int id) {
+        
+        return controlPersi.traerAuto(id);
+
+    }
+
 }

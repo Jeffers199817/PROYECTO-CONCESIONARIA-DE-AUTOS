@@ -19,8 +19,9 @@ public class VerCatalogo extends javax.swing.JFrame {
 
         Controlador control = null;
         
-        int num_auto;
+      
         Automovil auto;
+       
         
     /**
      * Creates new form VerCatalogo
@@ -29,7 +30,7 @@ public class VerCatalogo extends javax.swing.JFrame {
            
         control = new Controlador();
         
-        this.num_auto= num_auto; 
+     
             
         initComponents();
        
@@ -196,7 +197,9 @@ public class VerCatalogo extends javax.swing.JFrame {
  if(tbListaAutos.getRowCount()>0 ){ 
         if(tbListaAutos.getSelectedRow() !=-1){
             
-           ModificarAutos modificarAutos = new ModificarAutos();
+            int id = Integer.parseInt(String.valueOf(tbListaAutos.getValueAt(tbListaAutos.getSelectedRow(),0)));
+            
+           ModificarAutos modificarAutos = new ModificarAutos(id);
             modificarAutos.setVisible(true);
             modificarAutos.setLocationRelativeTo(null);//
             this.dispose();
