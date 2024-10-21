@@ -19,5 +19,8 @@ public class ConcesionariaDeAutos {
         prin.setVisible(true);
         prin.setLocationRelativeTo(null);
         
+        //Proyecto finalizado
+        System.out.println("Proyecto finalizado");
+        
     }
 }
